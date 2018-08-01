@@ -1,0 +1,31 @@
+{
+  "name": "eslint-formatter-sonarqube",
+  "version": "1.0.0",
+  "description": "eslint formatter to output JSON in a format compatible with sonarqube 7.4's new external analyzer feature",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "try": "eslint -f ./index.js . -- $@"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/garrettsutula/eslint-sonarqube-formatter.git"
+  },
+  "keywords": [
+    "sonarqube",
+    "formatter",
+    "external",
+    "eslint"
+  ],
+  "author": "Garrett Sutula",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/garrettsutula/eslint-sonarqube-formatter/issues"
+  },
+  "homepage": "https://github.com/garrettsutula/eslint-sonarqube-formatter#readme",
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^13.0.0",
+    "eslint-plugin-import": "^2.13.0"
+  }
+}
