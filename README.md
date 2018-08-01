@@ -16,5 +16,5 @@ eslint -f node_modules/eslint-formatter-sonarqube -o ./sonar/result.json  ./
 
 ## Reference
 
-[ESLint documentation](https://eslint.org/docs/developer-guide/working-with-custom-formatters)  on custom formatters
-[SonarQube documentation](https://docs.sonarqube.org/display/SONAR/Generic+Issue+Data) on external analyzers 
+- [ESLint documentation](https://eslint.org/docs/developer-guide/working-with-custom-formatters)  on custom formatters
+- [SonarQube documentation](https://docs.sonarqube.org/display/SONAR/Generic+Issue+Data) on external analyzers 
