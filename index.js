@@ -1,3 +1,3 @@
 const formatter = require('./lib/formatter');
 
-module.exports = results => formatter(results);
+module.exports = (results) => formatter(results);
