@@ -1,20 +1,44 @@
 # eslint-formatter-sonarqube
 
-This formatter aggregates the ESLint results into JSON format that can be imported into your sonarqube 7.4+ projects. After installing this module, configure your `sonar-project.properties` file to add the parameter `sonar.externalIssuesReportPaths` with one or more paths to reports that will be imported when a scan is run.
+> **This project is archived and no longer maintained.**
+>
+> SonarQube now has native ESLint support that reads ESLint's built-in JSON format directly — no custom formatter is needed. See the instructions below for the recommended approach.
 
-## Installation & Usage
+---
 
-*To Install*
-```
-npm install eslint-formatter-sonarqube --save-dev
+## Recommended approach (native ESLint + SonarQube integration)
+
+### 1. Generate an ESLint JSON report
+
+Use ESLint's built-in `json` formatter to write a report file:
+
+```sh
+eslint --format json --output-file ./sonar/eslint-report.json .
 ```
 
-*Once installed*, pass the module as the formatter parameter when using eslint:
+### 2. Configure SonarQube
+
+In your `sonar-project.properties` file, point `sonar.eslint.reportPaths` at the report:
+
+```properties
+sonar.eslint.reportPaths=sonar/eslint-report.json
 ```
-eslint -f node_modules/eslint-formatter-sonarqube -o ./sonar/result.json  ./  
+
+Multiple paths are comma-separated:
+
+```properties
+sonar.eslint.reportPaths=sonar/eslint-report.json,sonar/eslint-report-tests.json
 ```
+
+SonarQube will import the ESLint findings as issues on the next scan.
+
+---
+
+## Legacy usage (archived)
+
+This formatter converted ESLint output to SonarQube's Generic Issue Data format for use with `sonar.externalIssuesReportPaths`. It is no longer recommended.
 
 ## Reference
 
-- [ESLint documentation](https://eslint.org/docs/developer-guide/working-with-custom-formatters)  on custom formatters
-- [SonarQube documentation](https://docs.sonarqube.org/display/SONAR/Generic+Issue+Data) on external analyzers 
+- [ESLint documentation](https://eslint.org/docs/developer-guide/working-with-custom-formatters) on custom formatters
+- [SonarQube documentation](https://docs.sonarqube.org/latest/analyzing-source-code/importing-external-issues/importing-third-party-issues/) on importing third-party issues
